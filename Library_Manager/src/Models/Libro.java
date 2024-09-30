@@ -56,7 +56,7 @@ public class Libro implements Comparable<Libro>{
 
     @Override
     public String toString(){
-        return "Libro: " + this.titulo + "\nAutor: " + this.autor + "\nAño de publicacion: " + this.añoPublicacion + "\nISBN: " + this.isbn;
+        return "Libro: " + this.titulo + "\nAutor: " + this.autor + "\nAño de publicacion: " + this.añoPublicacion + "\nISBN: " + this.isbn + "\n";
     }
 
     @Override

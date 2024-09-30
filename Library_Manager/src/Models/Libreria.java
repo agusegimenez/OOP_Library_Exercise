@@ -51,15 +51,17 @@ public class Libreria implements Iterator <Libro>{
     }
 
     public Libro buscarLibroPorTitulo(String titulo) {
-        Iterator<Libro> iterator = this.iterator();
+        ordenarLibros();
 
-        while (iterator.hasNext()) {
-            Libro libro = iterator.next();
-            if (libro.getTitulo().equalsIgnoreCase(titulo)) {
-                return libro;
-            }
+        Libro libroABuscar = new Libro(titulo,"",0,0);
+
+        int index = Collections.binarySearch(libros, libroABuscar, new TituloComparator());
+
+        if (index >= 0){
+            return libros.get(index);
+        } else {
+            return null;
         }
-        return null;
     }
 
     public void eliminarLibro(){
@@ -67,10 +69,12 @@ public class Libreria implements Iterator <Libro>{
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Ingrese el nombre del libro que desea eliminar: ");
-        String libroAEliminar = scanner.nextLine();
+        String titulo = scanner.nextLine();
 
-        if (buscarLibroPorTitulo(libroAEliminar) != null){
-            iterator.remove();
+        Libro libroAEliminar = buscarLibroPorTitulo(titulo);
+
+        if (libroAEliminar != null){
+            libros.remove(libroAEliminar);
             System.out.println("El libro se ha eliminado correctamente!");
         }else{
             System.out.println("No existe el libro indicado.");
@@ -94,5 +98,9 @@ public class Libreria implements Iterator <Libro>{
     @Override
     public void remove() {
         Iterator.super.remove();
+    }
+
+    public void mostrarLibros(){
+        this.libros.forEach(System.out::println);
     }
 }

@@ -1,4 +1,4 @@
-**This was an exercise done for the Object Oriented Programming course. The purpose of it was to use collections, the Iterator pattern, and comparison and search methods with the Comparable and Comparator interfaces.**
+**This exercise was completed for the Object-Oriented Programming course. Its aim was to apply collections, implement the Iterator pattern, and explore comparison and search techniques using the Comparable and Comparator interfaces.**
 
 Develop a basic system to manage the books in a library using Java collections.
 This system should allow adding, deleting, and searching for books, as well as comparing them by different criteria.
